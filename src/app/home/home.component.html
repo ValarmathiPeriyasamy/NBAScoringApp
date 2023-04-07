@@ -1,0 +1,91 @@
+<h1>NBA Score Tracking App</h1>
+<div>
+    <select [(ngModel)]="selectedLevel" class="options" id="teamSelect">
+        <option *ngFor="let data of details">{{data.full_name}}</option>
+    </select>
+    <button (click)="onclick(selectedLevel)" class="trackbtn" id="trackBtn">track team</button>
+</div>
+
+<!-- <ng-container *ngFor="let team of teamsDetail">
+        <h1>{{team.full_name}}[{{team.abbreviation}}]</h1>
+        <h3>{{team.conference}}conference</h3>
+        <img src="{{team.img}}" alt="">
+</ng-container> -->
+<div class="rows">
+    <div class="card" *ngFor="let team of teamsDetail">
+        <div class="container">
+          <button (click)="remove(team)" class="removebtn" [id]="'remove'+team">x</button>
+            <h1>{{team.home_team.full_name}}[{{team.home_team.abbreviation}}]</h1>
+            <h3>{{team.home_team.conference}}conference</h3>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h3>Results of past 12 days</h3>
+                <div>
+                    <button class="loss">L</button>
+                    <button class="loss">L</button>
+                    <button class="win">W</button>
+                    <button class="loss">L</button>
+                    <button class="win">W</button>
+
+                </div>
+                <h3>Avg pts scored:<span>{{team.home_team_score}}</span></h3>
+                <h3>Avg pts scored:<span>{{team.visitor_team_score}}</span></h3>
+                <button  class="btn" [id]="'results'+team">See game results >></button>
+            </div>
+            <div class="column">
+                <img src="{{team.img}}" alt="">
+            </div>
+        </div>
+
+      </div>
+</div>
+
+
+
+
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title style="line-height: 50px;" >Sacramento Kings[SAC]</mat-card-title>
+      <mat-card-subtitle style="line-height: 50px">Western conference</mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-divider ></mat-divider>
+    <mat-card-content>
+      <div class="row">
+        <p>Results of past 12 days:</p>
+      </div>
+      <div class="label">
+      <table>
+      <tr type="none">
+        <th ><mat-icon class="mat-icon-circle-w">W</mat-icon></th>
+        <th ><mat-icon class="mat-icon-circle-l">L</mat-icon></th>
+        <th ><mat-icon class="mat-icon-circle-l">L</mat-icon></th>
+        <th ><mat-icon class="mat-icon-circle-w">W</mat-icon></th>
+        <th ><mat-icon class="mat-icon-circle-w">W</mat-icon></th>
+        <th><mat-icon class="mat-icon-circle-w">W</mat-icon></th>
+      </tr>
+      </table>
+      <p style="line-height: 25px">Avg pts Scored:</p>
+      <p>Avg pts conceded:</p>
+        <img mat-card-md-image class="img" style="width: 200px;height: 150px;"
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      </div>
+    </mat-card-content>
+    <mat-card-actions >
+      <button mat-button class="btn">See game results >></button>
+    </mat-card-actions>
+  </mat-card> -->
+
+
+
+
+
+
+<!-- <div *ngFor="let team of teamsDetail | keyvalue">
+    <h1>{{team.full_name}}</h1>
+    <h3>{{team.conference}}conference</h3>
+
+
+</div> -->
+
